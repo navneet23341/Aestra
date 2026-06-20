@@ -9,7 +9,7 @@ function App() {
 
   return (
      <div className="website">
-      <h1>Techwear</h1>
+      <h1 style={{fontFamily:'Playfair Display',fontSize:30, marginTop:0}}>Aestra</h1>
 
       <div className='main-feature'>
         <div className='prompt'>prompts and info</div>

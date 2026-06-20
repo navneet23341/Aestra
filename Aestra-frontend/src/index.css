@@ -120,9 +120,11 @@ body {
   height: 100vh;
   overflow: hidden; /* body doesn't scroll */
 
-  background: linear-gradient(
-    to right,
-    rgb(216, 255, 200) 50%,
-    rgb(197, 227, 132) 50%
+  background:
+  radial-gradient(
+  circle at top center,
+  rgba(212,180,131,0.6),
+  transparent 45%
   );
+  background-color: #0E0E10;
 }
