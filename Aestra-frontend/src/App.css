@@ -1,0 +1,51 @@
+/* App.css */
+
+.website {
+  width: 90%;
+  height: 83vh;
+
+  margin: 5vh auto;
+
+  background: #181818;
+
+  overflow-y: auto; /* THIS scrolls */
+
+  border-radius: 20px;
+
+  color: white;
+  padding: 2rem;
+  box-shadow: 1px 1px 30px black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-feature{
+  border : 2px solid white;
+  height: 90%;
+  width: 100%;
+  border-radius:20px ;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.main-feature .prompt{
+  display: flex;
+  height: 100%;
+  width: 20%;
+  border: 2px dotted white ;
+}
+
+.main-feature .imageF{
+  display: flex;
+  height: 100%;
+  width: 45%;
+  border: 2px dotted white;
+}
+
+.main-feature .used{
+  width: 20%;
+  border: 2px dotted white;
+}
+
