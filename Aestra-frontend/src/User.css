@@ -1,0 +1,180 @@
+.box-1{
+    width:100%;
+    height:100%;
+
+    box-sizing:border-box;
+
+    padding:20px;
+
+    display:flex;
+    flex-direction:column;
+
+    color:white;
+
+    overflow-y:auto;
+}
+
+.box-1 h1{
+    margin:0;
+
+    font-size:1.8rem;
+    font-weight:600;
+}
+
+.box-1 h2{
+    margin-top:4px;
+    margin-bottom:20px;
+
+    font-size:0.9rem;
+
+    color:#d4b483;
+
+    font-weight:500;
+}
+
+.box-1 h3{
+    margin:0;
+
+    font-size:0.8rem;
+
+    font-weight:500;
+
+    color:#888;
+}
+
+.feature-heading{
+    margin-top:18px !important;
+    margin-bottom:8px !important;
+
+    color:white !important;
+
+    font-size:0.85rem !important;
+
+    letter-spacing:0.5px;
+}
+
+.box-1 button{
+    border:none;
+
+    cursor:pointer;
+
+    transition:all 0.25s ease;
+}
+
+/* Upload Button */
+
+.box-1 > button:first-of-type{
+    width:100%;
+
+    padding:12px;
+
+    margin-top:10px;
+
+    border-radius:14px;
+
+    background:#202329;
+
+    color:white;
+
+    border:1px solid rgba(255,255,255,0.05);
+}
+
+.box-1 > button:first-of-type:hover{
+    background:#252931;
+}
+
+/* Textarea */
+
+.box-1 textarea{
+    margin-top:10px;
+
+    min-height:100px;
+
+    resize:none;
+
+    padding:14px;
+
+    border-radius:16px;
+
+    border:1px solid rgba(255,255,255,0.05);
+
+    background:#202329;
+
+    color:white;
+
+    outline:none;
+
+    font-family:inherit;
+}
+
+.box-1 textarea::placeholder{
+    color:#666;
+}
+
+.box-1 textarea:focus{
+    border-color:
+    rgba(212,180,131,0.25);
+}
+
+/* Style Tags */
+
+.box-1 div{
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:8px;
+
+    margin-top:10px;
+}
+
+.box-1 div button{
+    background:#202329;
+
+    color:#cfcfcf;
+
+    padding:8px 12px;
+
+    border-radius:999px;
+
+    border:1px solid rgba(255,255,255,0.05);
+
+    font-size:0.75rem;
+}
+
+.box-1 div button:hover{
+    background:
+    rgba(212,180,131,0.08);
+
+    color:#d4b483;
+
+    border-color:
+    rgba(212,180,131,0.15);
+}
+
+/* Find Button */
+
+.box-1 > button:last-of-type{
+    margin-top:auto;
+
+    width:100%;
+
+    padding:14px;
+
+    border-radius:16px;
+
+    background:#d4b483;
+
+    color:#131417;
+
+    font-weight:600;
+
+    font-size:0.95rem;
+}
+
+.box-1 > button:last-of-type:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+    0 8px 20px rgba(212,180,131,0.15);
+}
