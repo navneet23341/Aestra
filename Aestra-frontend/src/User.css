@@ -9,7 +9,7 @@
     display:flex;
     flex-direction:column;
 
-    color:white;
+    color:#2F2A3A;
 
     overflow-y:auto;
 }
@@ -27,7 +27,7 @@
 
     font-size:0.9rem;
 
-    color:#d4b483;
+    color:#B799FF;
 
     font-weight:500;
 }
@@ -39,14 +39,14 @@
 
     font-weight:500;
 
-    color:#888;
+    color:#7A6F91;
 }
 
 .feature-heading{
     margin-top:18px !important;
     margin-bottom:8px !important;
 
-    color:white !important;
+    color:#2F2A3A !important;
 
     font-size:0.85rem !important;
 
@@ -72,15 +72,15 @@
 
     border-radius:14px;
 
-    background:#202329;
+    background:#FAF7FF;
+    color:#2F2A3A;
 
-    color:white;
-
-    border:1px solid rgba(255,255,255,0.05);
+    border:
+    1px solid rgba(183,153,255,0.15);
 }
 
 .box-1 > button:first-of-type:hover{
-    background:#252931;
+    background:#F3ECFF;
 }
 
 /* Textarea */
@@ -96,11 +96,9 @@
 
     border-radius:16px;
 
-    border:1px solid rgba(255,255,255,0.05);
-
-    background:#202329;
-
-    color:white;
+    background:#FAF7FF;
+    color:#2F2A3A;
+    border:1px solid rgba(183,153,255,0.15);
 
     outline:none;
 
@@ -108,12 +106,12 @@
 }
 
 .box-1 textarea::placeholder{
-    color:#666;
+    color:#9A90AE;
 }
 
 .box-1 textarea:focus{
     border-color:
-    rgba(212,180,131,0.25);
+    rgba(183,153,255,0.4)
 }
 
 /* Style Tags */
@@ -129,27 +127,25 @@
 }
 
 .box-1 div button{
-    background:#202329;
-
-    color:#cfcfcf;
 
     padding:8px 12px;
 
     border-radius:999px;
 
-    border:1px solid rgba(255,255,255,0.05);
+    background:#FAF7FF;
+    color:#2F2A3A;
+    border:1px solid rgba(183,153,255,0.15);
 
     font-size:0.75rem;
 }
 
 .box-1 div button:hover{
-    background:
-    rgba(212,180,131,0.08);
+    background:#EFE4FF;
 
-    color:#d4b483;
+    color:#B799FF;
 
     border-color:
-    rgba(212,180,131,0.15);
+    rgba(183,153,255,0.2);
 }
 
 /* Find Button */
@@ -163,9 +159,9 @@
 
     border-radius:16px;
 
-    background:#d4b483;
+    background:#B799FF;
 
-    color:#131417;
+    color:white;
 
     font-weight:600;
 
@@ -176,5 +172,5 @@
     transform:translateY(-2px);
 
     box-shadow:
-    0 8px 20px rgba(212,180,131,0.15);
+    0 8px 20px rgba(183,153,255,0.25);
 }

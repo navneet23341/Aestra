@@ -10,9 +10,9 @@
 
   border-radius: 14px;
 
-  background: #202329;
+  background: #FAF7FF;
 
-  border: 1px solid rgba(255,255,255,0.05);
+  border: 1px solid rgba(183,153,255,0.12);
 
   cursor: pointer;
 
@@ -20,7 +20,7 @@
 }
 
 .product-card:hover {
-  background: #252931;
+  background:#F3ECFF;
 
   transform: translateY(-2px);
 }
@@ -49,7 +49,7 @@
 .product-info h4 {
   margin: 0;
 
-  color: white;
+  color: #2F2A3A;
 
   font-size: 0.9rem;
   font-weight: 500;
@@ -62,7 +62,7 @@
 .product-price {
   margin-top: 4px;
 
-  color: #d4b483;
+  color: #B799FF;
 
   font-size: 0.8rem;
 

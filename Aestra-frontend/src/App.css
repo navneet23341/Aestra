@@ -7,16 +7,16 @@
 
   margin: 5vh auto;
 
-  background: #131417;
+  background: #F5F0FF;
 
   overflow-y: auto; /* THIS scrolls */
 
   border-radius: 20px;
 
-  color: white;
+  color: #2F2A3A;
   padding: 2rem;
   box-shadow:
-  0 20px 60px rgba(0,0,0,0.4);
+   0 25px 80px rgba(183,153,255,0.15);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -53,11 +53,10 @@
   width: 20%;
   border-radius:24px ;
   transform: rotate(-0.3deg) translateY(15px);
-  background-color: #1A1C20;
+  background-color: #FFFFFF;
   box-shadow:
-  0 12px 24px rgba(0,0,0,0.25),
-  0 4px 8px rgba(0,0,0,0.15);
-  border: 1px solid rgba(255,255,255,0.05);
+0 0 8px 30px rgba(183,153,255,0.12);
+  border:1px solid rgba(183,153,255,0.15);
 }
 
 .main-feature .imageF{
@@ -67,7 +66,12 @@
   width: 45%;
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 26px;
-  background-color: #17191D;
+  background:
+  linear-gradient(
+      180deg,
+      #FFFFFF,
+      #F8F4FF
+  );
   z-index: 1;
   box-shadow:
       0 0 0 1px rgba(255,255,255,0.02),
@@ -80,7 +84,8 @@
     position: absolute;
     inset: -40px;
 
-    background: rgba(212,180,131,0.05);
+    background:
+    rgba(183,153,255,0.18);
 
     filter: blur(80px);
 
@@ -92,10 +97,12 @@
   width: 20%;
   border-radius: 24px;
   transform: rotate(0.3deg) translateY(15px);
-  background-color: #1A1C20;
+  background:#FFFFFF;
+
+  border:
+    1px solid rgba(183,153,255,0.15);
+
   box-shadow:
-  0 12px 24px rgba(0,0,0,0.25),
-  0 4px 8px rgba(0,0,0,0.15);
-  border: 1px solid rgba(255,255,255,0.05);
+    0 8px 30px rgba(183,153,255,0.12);
 }
 

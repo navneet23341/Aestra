@@ -11,7 +11,7 @@
   gap: 8px;
 
   border-bottom:
-    1px solid rgba(255,255,255,0.05);
+    1px solid rgba(183,153,255,0.12);
 }
 
 .tab {
@@ -24,7 +24,7 @@
 
   background: transparent;
 
-  color: #8b8b8b;
+  color: #7A6F91;
 
   font-size: 0.8rem;
   font-weight: 500;
@@ -40,20 +40,18 @@
 }
 
 .tab:hover {
-  background:
-    rgba(255,255,255,0.03);
+  background: #F3ECFF;
 
-  color: white;
+  color: #B799FF;
 }
 
 .tab.active {
-  background:
-    rgba(212,180,131,0.08);
+  background:#EFE4FF;
 
-  color: #d4b483;
+    color:#B799FF;
 
-  border:
-    1px solid rgba(212,180,131,0.15);
+    border:
+    1px solid rgba(183,153,255,0.2);
 }
 
 .used-content {
@@ -69,7 +67,7 @@
 }
 
 .used-content::-webkit-scrollbar-thumb {
-  background: #303030;
+  background: #D8CCFF;
   border-radius: 999px;
 }
 
@@ -86,7 +84,7 @@
 
   text-align: center;
 
-  color: #666;
+  color: #9A90AE;
 
   font-size: 0.9rem;
 }
