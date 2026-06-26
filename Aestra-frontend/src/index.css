@@ -123,8 +123,8 @@ body {
   background:
   radial-gradient(
   circle at top center,
-  rgba(183,153,255,0.25),
+  rgba(168,120,255,.18),
   transparent 45%
   );
-  background-color: #FAF7FF;
+  background-color: #F8F6FC;
 }

@@ -40,18 +40,17 @@
 }
 
 .tab:hover {
-  background: #F3ECFF;
+  background:#F4F0FF;
 
-  color: #B799FF;
+  color:#8B5CF6;
 }
 
 .tab.active {
-  background:#EFE4FF;
+  background:#8B5CF6;
 
-    color:#B799FF;
+  color:white;
 
-    border:
-    1px solid rgba(183,153,255,0.2);
+  border:none;
 }
 
 .used-content {

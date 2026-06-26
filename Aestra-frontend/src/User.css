@@ -27,7 +27,8 @@
 
     font-size:0.9rem;
 
-    color:#B799FF;
+    color:#6F6883;
+
 
     font-weight:500;
 }
@@ -46,7 +47,7 @@
     margin-top:18px !important;
     margin-bottom:8px !important;
 
-    color:#2F2A3A !important;
+    color:#383347 !important;
 
     font-size:0.85rem !important;
 
@@ -72,7 +73,7 @@
 
     border-radius:14px;
 
-    background:#FAF7FF;
+    background:#F8F7FC;
     color:#2F2A3A;
 
     border:
@@ -96,7 +97,7 @@
 
     border-radius:16px;
 
-    background:#FAF7FF;
+    background:#F8F7FC;
     color:#2F2A3A;
     border:1px solid rgba(183,153,255,0.15);
 
@@ -159,7 +160,7 @@
 
     border-radius:16px;
 
-    background:#B799FF;
+    background:#8B5CF6;
 
     color:white;
 

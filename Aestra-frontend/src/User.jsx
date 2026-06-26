@@ -4,6 +4,8 @@ import "./User.css"
 function User(){
     const ImageRef = useRef(null);
     const [prompt , setPrompt] = useState("");
+    const [style, setStyle] = useState("");
+    const [image , setimage] = useState(null);
 
     const handleClick = ()=>{
         ImageRef.current.click();
@@ -11,11 +13,48 @@ function User(){
 
     const handleChange = (e) => {
         const file = e.target.files[0];
-        console.log(file);
+        setimage(file);
     }
 
     const handlePrompt= (e) => {
         setPrompt(e.target.value)
+    }
+
+    const handlesubmit =async (e) =>{
+        e.preventDefault();
+        if (!image) {
+            alert("Please upload an image.");
+            return;
+        }
+
+        if (!prompt.trim()) {
+            alert("Please enter a prompt.");
+            return;
+        }
+
+        const formData = new FormData();
+
+        formData.append("image", image);
+        formData.append("prompt", prompt);
+        formData.append("style", style);
+
+        try{
+        const response = await fetch("http://localhost:3000/find",
+            {
+                method:"POST",
+                body: formData
+            }
+        );
+        if (!response.ok) {
+            throw new Error("Server error");
+        }
+        
+        const data = await response.json();
+        console.log(data);
+        }
+        catch(error){
+        console.log(error);
+        }
     }
 
     return(
@@ -28,18 +67,18 @@ function User(){
             <input ref={ImageRef} type="file" accept="image/*" onChange={handleChange} style={{display:"none"}}>
             </input>
             <h3 className="feature-heading">click to Upload</h3>
-            <button onClick={handleClick}>click to Upload</button>
+            <button type="button" onClick={handleClick}>click to Upload</button>
         
             <textarea value={prompt} onChange={handlePrompt} placeholder="tell whats outfit do you looking for..."></textarea>
             <h3 className="feature-heading">Style Preference</h3>
             <div>
-                <button>Trending</button>
-                <button>Modern</button>
-                <button>Classic</button>
-                <button>Minimal</button>
-                <button>Streetwear</button>
+                <button onClick={()=>setStyle("Trending")}>Trending</button>
+                <button onClick={()=>setStyle("Modern")}>Modern</button>
+                <button onClick={()=>setStyle("Classic")}>Classic</button>
+                <button onClick={()=> setStyle("Minimal")}>Minimal</button>
+                <button onClick={()=>setStyle("Streetwear")}>Streetwear</button>
             </div>
-            <button>Find</button>
+            <button type="button" onClick={handlesubmit}>Find</button>
         </div>
     )
 }
