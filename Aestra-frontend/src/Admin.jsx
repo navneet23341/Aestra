@@ -10,6 +10,8 @@ function Admin(){
     const [category , setcategory] = useState("");
     const [link , setlink] = useState("");
 
+    const [image,setImage]= useState(null);
+
     const handleClick = (e)=>{
         e.preventDefault();
         imageRef.current.click();
@@ -17,7 +19,7 @@ function Admin(){
 
     const handleChange = (e) => {
         const file = e.target.files[0];
-        console.log(file);
+        setImage(e.target.files[0]);
     }
 
     const htitle = (e)=>{
@@ -41,6 +43,32 @@ function Admin(){
 
     const hlink = (e)=>{
         setlink(e.target.value);
+    }
+
+    const handleSubmit = async (e)=>{
+        e.preventDefault();
+
+        const formData = new FormData();
+
+        formData.append("image",image);
+        formData.append("title",title);
+        formData.append("brand",brand);
+        formData.append("price",price);
+        formData.append("gender",gender);
+        formData.append("category",category);
+        formData.append("link",link);
+
+        const response = await fetch(
+            "http://localhost:3000/find",
+            {
+                method:"POST",
+                body:formData
+            }
+        );
+
+        const data=await response.json();
+
+        console.log(data);
     }
 
 
@@ -75,11 +103,12 @@ function Admin(){
             
             <input ref={imageRef} type="file" onChange={handleChange} accept="image/*" style={{display:"none"}}></input>
 
-            <button onClick={handleClick} className="upload-btn">upload</button>
+            <button onClick={handleClick} type="button" className="upload-btn">upload</button>
 
              <button
         type="submit"
         className="submit-btn"
+        onClick={handleSubmit}
     >
         Upload Product
     </button>
