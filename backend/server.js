@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
-console.log(process.env.Nvidea_API_KEY);
+
 const pool = require("./config/db");
 
 pool.connect()
@@ -17,10 +17,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const genRoute = require("./routes/adminRoutes")
+const adminRoutes = require("./routes/adminRoutes");
+const userRoutes = require("./routes/userRoutes");
 
-app.use("/", genRoute);
+app.use("/admin", adminRoutes);
+app.use("/user", userRoutes);
 
-app.listen(3000,()=>{
-    console.log("server is listening on port 3000...");
-})
+app.listen(3000, () => {
+    console.log("Server listening on port 3000...");
+});

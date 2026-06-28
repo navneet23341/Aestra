@@ -2,6 +2,7 @@ const cloudinary = require("../config/cloudinary");
 const axios = require("axios");
 const db = require("../config/db");
 const streamifier = require("streamifier");
+const { uploadImage } = require("../services/cloudinaryService");
 
 const handleSubmit = async (req, res) => {
 
@@ -23,28 +24,7 @@ const handleSubmit = async (req, res) => {
         // Upload to Cloudinary
         // ==========================
 
-        const uploadResult = await new Promise((resolve,reject)=>{
-
-            const stream = cloudinary.uploader.upload_stream(
-                {
-                    folder:"fashion"
-                },
-                (error,result)=>{
-
-                    if(error)
-                        reject(error);
-
-                    else
-                        resolve(result);
-
-                }
-            );
-
-            streamifier
-                .createReadStream(req.file.buffer)
-                .pipe(stream);
-
-        });
+        const uploadResult = await uploadImage(req.file.buffer);
 
         console.log("Uploaded:",uploadResult.secure_url);
 
