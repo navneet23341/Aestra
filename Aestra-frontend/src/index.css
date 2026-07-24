@@ -115,16 +115,3 @@ code {
 
 /* index.css */
 
-body {
-  margin: 0;
-  height: 100vh;
-  overflow: hidden; /* body doesn't scroll */
-
-  background:
-  radial-gradient(
-  circle at top center,
-  rgba(168,120,255,.18),
-  transparent 45%
-  );
-  background-color: #F8F6FC;
-}

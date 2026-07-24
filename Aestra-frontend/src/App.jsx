@@ -5,6 +5,7 @@ import heroImg from './assets/hero.png'
 import './App.css'
 import User from './User'
 import UsedPanel from './UsedPanel'
+import Landing from './Landing'
 function App() {
   const [count, setCount] = useState(0)
   const templates = [
@@ -38,18 +39,22 @@ const usedProducts = [
 ];
 
   return (
-     <div className="website">
-      <h1 style={{fontFamily:'Playfair Display',fontSize:30, marginTop:0}}>Aestra</h1>
+    //  <div className="website">
+    //   <h1 style={{fontFamily:'Playfair Display',fontSize:30, marginTop:0}}>Aestra</h1>
 
-      <div className='main-feature'>
-        <div className='prompt'><User/></div>
-        <div className='imageF'>our image</div>
-        <div className='used'>
-          <UsedPanel
-              templates={templates} usedProducts={usedProducts}
-            />
-        </div>
-      </div>
+    //   <div className='main-feature'>
+    //     <div className='prompt'><User/></div>
+    //     <div className='imageF'>our image</div>
+    //     <div className='used'>
+    //       <UsedPanel
+    //           templates={templates} usedProducts={usedProducts}
+    //         />
+    //     </div>
+    //   </div>
+    // </div>
+    <div className="app">
+
+    <Landing/>
     </div>
   )
 }

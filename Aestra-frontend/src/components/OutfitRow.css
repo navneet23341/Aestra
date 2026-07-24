@@ -1,0 +1,31 @@
+.slider{
+
+    position:absolute;
+
+    width:100%;
+
+    overflow:hidden;
+
+    background-color: #7A5C43;
+
+    z-index:1;
+}
+
+.slider.left{
+
+    top:430px;
+}
+
+.slider.right{
+
+    top:650px;
+}
+
+.marquee{
+
+    display:flex;
+
+    width:max-content;
+
+    will-change:transform;
+}
