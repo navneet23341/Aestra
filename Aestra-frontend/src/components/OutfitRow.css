@@ -6,7 +6,7 @@
 
     overflow:hidden;
 
-    background-color: #7A5C43;
+    background:#7A5C43;
 
     z-index:1;
 }
@@ -21,7 +21,7 @@
     top:650px;
 }
 
-.marquee{
+.track{
 
     display:flex;
 
