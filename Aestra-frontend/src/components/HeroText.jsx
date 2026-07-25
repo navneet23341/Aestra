@@ -1,6 +1,9 @@
+import { useState } from "react";
 import "./HeroText.css";
 
-export default function HeroText() {
+export default function HeroText({openAuth}) {
+
+
   return (
     <div className="hero-text">
 
@@ -11,7 +14,7 @@ export default function HeroText() {
         Upload your photo and let AI become your personal stylist.
       </p>
 
-      <button>Try Mirror</button>
+      <button onClick={openAuth}>Try Mirror</button>
 
     </div>
   );
