@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import "./AuthModal.css";
 import { useState } from "react";
 import { signup, login } from "../api/auth";
+import { useNavigate } from "react-router-dom";
 
 export default function AuthModal({ closeAuth }) {
     const [screen, setScreen] = useState("login");
@@ -9,6 +10,7 @@ export default function AuthModal({ closeAuth }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const navigate = useNavigate();
 
 
 
@@ -38,8 +40,31 @@ export default function AuthModal({ closeAuth }) {
                 email,
                 password
             });
+            if (!response.success) {
+
+                alert(response.message);
+
+                return false;
+
+            }
 
             console.log(response);
+
+            localStorage.setItem(
+
+                "accessToken",
+
+                response.accessToken
+
+            );
+
+            localStorage.setItem(
+
+                "refreshToken",
+
+                response.refreshToken
+
+            );
 
             return true;
 
@@ -65,9 +90,31 @@ export default function AuthModal({ closeAuth }) {
 
             });
 
-            console.log(response);
+            if (!response.success) {
 
-            return true;
+                alert(response.message);
+
+                return false;
+
+            }
+
+            console.log(response);
+            localStorage.setItem(
+
+                "accessToken",
+
+                response.accessToken
+
+            );
+
+            localStorage.setItem(
+
+                "refreshToken",
+
+                response.refreshToken
+
+            );      
+          return true;
 
         }
 
@@ -221,8 +268,8 @@ export default function AuthModal({ closeAuth }) {
                             console.log("Authentication Successful");
 
                             // Later we'll do:
-                            // closeAuth();
-                            // navigate("/workspace");
+                            closeAuth();
+                            navigate("/home");
 
                         }
 

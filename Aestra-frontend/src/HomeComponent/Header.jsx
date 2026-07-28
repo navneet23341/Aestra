@@ -1,11 +1,24 @@
 import { useState } from "react";
 import "./Header.css";
+import { useNavigate } from "react-router-dom";
 
 import logo from "../assets/logo.jpg";
-
+import { logout } from "../api/auth";
 export default function Header(){
 
     const [open,setOpen]=useState(false);
+    const navigate = useNavigate();
+
+    const logoutuser = async ()=>{
+        const refreshToken = localStorage.getItem("refreshToken");
+
+        await logout(refreshToken);
+
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("refreshToken");
+
+        navigate("/");
+    }
 
     return(
 
@@ -47,7 +60,7 @@ export default function Header(){
 
                     <div className="dropdown">
 
-                        <button>
+                        <button onClick={logoutuser}>
 
                             👤 Profile
 

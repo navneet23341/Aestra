@@ -14,14 +14,22 @@ pool.connect()
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+
+    origin: "http://localhost:5173",
+
+    credentials: true
+
+}));
 app.use(express.json());
 
 const adminRoutes = require("./routes/adminRoutes");
 const userRoutes = require("./routes/userRoutes");
+const authRoutes = require("./routes/authRoutes");
 
 app.use("/admin", adminRoutes);
 app.use("/user", userRoutes);
+app.use("/api/auth", authRoutes);
 
 app.listen(3000, () => {
     console.log("Server listening on port 3000...");
