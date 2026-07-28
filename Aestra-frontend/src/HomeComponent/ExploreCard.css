@@ -1,0 +1,155 @@
+.explore-card{
+
+    width:250px;
+    height:365px;
+
+    margin:10px 0;
+
+    flex-shrink:0;
+
+    display:flex;
+    flex-direction:column;
+
+    padding:12px;
+
+    background:#3F342B;
+
+    border-radius:28px;
+
+    box-shadow:0 10px 26px rgba(0,0,0,.12);
+
+    transition:
+        transform .28s ease,
+        background-color .28s ease,
+        box-shadow .28s ease;
+
+}
+
+.explore-card:hover{
+
+    transform:translateY(-6px);
+
+    background:#514236;   /* lighter warm brown */
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,.22),
+        0 0 0 1px rgba(255,255,255,.05);
+
+}
+
+/* ================= IMAGE ================= */
+
+.explore-image{
+
+    flex:1;
+
+    overflow:hidden;
+
+    border-radius:22px;
+
+}
+
+.explore-image img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:transform .35s ease;
+
+}
+
+.explore-card:hover .explore-image img{
+
+    transform:scale(1.04);
+
+}
+
+/* ================= FOOTER ================= */
+
+.explore-footer{
+
+    height:78px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+/* ================= PRICE ================= */
+
+.price{
+
+    color:white;
+
+    font-size:1.45rem;
+
+    font-weight:700;
+
+}
+
+/* ================= BUTTONS ================= */
+
+.actions{
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+.actions button{
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:9px 18px;
+
+    border-radius:999px;
+
+    font-size:.88rem;
+
+    font-weight:600;
+
+    transition:.2s;
+
+}
+
+/* ================= TRY ================= */
+
+.try-btn{
+
+    background:#A8794C;
+
+    color:white;
+
+}
+
+.try-btn:hover{
+
+    background:#BB8C5D;
+
+}
+
+/* ================= ADD ================= */
+
+.add-btn{
+
+    background:white;
+
+    color:#5F4332;
+
+}
+
+.add-btn:hover{
+
+    background:#F3ECE5;
+
+}

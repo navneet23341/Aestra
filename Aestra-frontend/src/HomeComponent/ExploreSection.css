@@ -1,0 +1,119 @@
+.explore{
+
+    margin-top:70px;
+
+    display:grid;
+
+    grid-template-columns:1fr 430px;
+
+    border-top:2px solid #D8C5B3;
+
+    background:#EFE6DA;
+
+    min-height:900px;
+
+}
+
+/* ================= LEFT ================= */
+
+.explore-left{
+
+    overflow-y:auto;
+
+    padding:30px;
+
+    border-right:2px solid #D8C5B3;
+
+}
+
+/* ================= GROUP ================= */
+
+.explore-group{
+
+    margin-bottom:60px;
+
+}
+
+.group-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+.group-header h2{
+
+    margin:0;
+
+    color:#5F4332;
+
+    font-size:1.8rem;
+
+}
+
+.group-header button{
+
+    border:none;
+
+    background:none;
+
+    cursor:pointer;
+
+    color:#A8794C;
+
+    font-weight:600;
+
+    font-size:.95rem;
+
+}
+
+/* ================= ROW ================= */
+
+.group-row{
+
+    display:flex;
+
+    gap:22px;
+
+    overflow-x:auto;
+
+    padding-bottom:10px;
+
+    scroll-behavior:smooth;
+
+    scrollbar-width:none;
+
+}
+
+.group-row::-webkit-scrollbar{
+
+    height:8px;
+    display: none;
+}
+
+.group-row::-webkit-scrollbar-thumb{
+
+    background:#D9C2AA;
+
+    border-radius:999px;
+
+}
+
+/* ================= RIGHT ================= */
+
+.explore-right{
+
+    position:sticky;
+
+    top:0;
+
+    height:100vh;
+
+    overflow:hidden;
+
+}

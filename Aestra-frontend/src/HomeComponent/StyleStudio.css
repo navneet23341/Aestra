@@ -2,25 +2,31 @@
 
     height:100%;
 
-    display:flex;
+    display:grid;
 
-    flex-direction:column;
+    grid-template-rows:
+        auto
+        auto
+        auto
+        auto
+        auto
+        auto;
+
+    padding:22px;
 
     overflow:hidden;
-    padding:20px;
 
 }
 
-/* ---------------------- */
+/* ================= HEADER ================= */
 
 .studio-header{
-    min-height:90px;
-    padding:16px 20px;
 
-    flex-shrink:0;
+    padding-bottom:18px;
+
+    margin-bottom:6px;
 
     border-bottom:1px solid #E6D8CA;
-    margin: 0;
 
 }
 
@@ -38,23 +44,21 @@
 
 .studio-header p{
 
-    padding-bottom:14px;
-    margin-bottom:18px;
-    border-bottom:1px solid #E6D8CA;
+    margin:8px 0 0;
 
     color:#7A6656;
 
-    font-size:.9rem;
+    font-size:.95rem;
 
-    line-height:1.45;
+    line-height:1.5;
 
 }
 
-/* ---------------------- */
+/* ================= SECTIONS ================= */
 
 .section{
 
-    padding:10px 0px;
+    padding:10px 0;
 
     border-bottom:1px solid #E6D8CA;
 
@@ -62,13 +66,15 @@
 
 .section:last-of-type{
 
+    padding-bottom:8px;
+
     border-bottom:none;
 
 }
 
 .section h4{
 
-    margin-top: 8px;
+    margin:0 0 14px;
 
     display:flex;
 
@@ -78,7 +84,9 @@
 
     color:#5F4332;
 
-    font-size:.88rem;
+    font-size:1rem;
+
+    font-weight:700;
 
 }
 
@@ -86,11 +94,13 @@
 
     color:#A8794C;
 
+    font-size:1rem;
+
     font-weight:700;
 
 }
 
-/* ---------------------- */
+/* ================= CHIPS ================= */
 
 .chips{
 
@@ -98,7 +108,7 @@
 
     flex-wrap:wrap;
 
-    gap:6px;
+    gap:10px;
 
 }
 
@@ -110,13 +120,15 @@
 
     color:#5F4332;
 
-    padding:4px 10px;
+    padding:8px 16px;
 
     border-radius:999px;
 
     cursor:pointer;
 
-    font-size:.78rem;
+    font-size:.9rem;
+
+    font-weight:500;
 
     transition:.2s;
 
@@ -136,11 +148,13 @@
 
 }
 
-/* ---------------------- */
+/* ================= RANGE ================= */
 
 input[type="range"]{
 
     width:100%;
+
+    margin:14px 0 6px;
 
     accent-color:#6B4F3A;
 
@@ -148,19 +162,22 @@ input[type="range"]{
 
 }
 
-/* ---------------------- */
+/* ================= TEXTAREA ================= */
 
 textarea{
 
     width:100%;
 
-    height:56px;
+    height:80px;
 
     resize:none;
+    padding: 7px;
+    
+    padding-bottom: 2px;
 
-    padding:12px;
+    font-size:.95rem;
 
-    font-size:.9rem;
+    line-height:1.5;
 
     border:1px solid #D9C2AA;
 
@@ -170,9 +187,11 @@ textarea{
 
     outline:none;
 
-    border-radius:10px;
+    border-radius:12px;
 
     font-family:inherit;
+
+    transition:.25s;
 
 }
 
@@ -182,14 +201,13 @@ textarea:focus{
 
 }
 
-/* ---------------------- */
+/* ================= BUTTON ================= */
 
 .generate-btn{
 
-    margin-top:auto;
-    margin-bottom:6px;
+    margin-top:8px;
 
-    padding:13px;
+    padding:16px;
 
     border:none;
 
@@ -197,13 +215,17 @@ textarea:focus{
 
     color:white;
 
-    border-radius:10px;
+    border-radius:12px;
 
     cursor:pointer;
+
+    font-size:1rem;
 
     font-weight:600;
 
     transition:.25s;
+
+    margin-bottom: 30px;
 
 }
 
@@ -221,7 +243,7 @@ textarea:focus{
 
 }
 
-/* ---------------------- */
+/* ================= SCROLLBAR ================= */
 
 .studio::-webkit-scrollbar{
 

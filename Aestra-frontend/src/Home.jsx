@@ -1,14 +1,18 @@
 import "./Home.css";
 
 import StyleStudio from "./HomeComponent/StyleStudio";
-// import OutfitPreview from "./HomeComponent/OutfitPreview";
-// import ProductPanel from "./HomeComponent/ProductPanel";
+import OutfitPreview from "./HomeComponent/OutfitPreview";
 import UsedProducts from "./HomeComponent/UsedProducts";
+import ExploreSection from "./HomeComponent/ExploreSection";
+import Footer from "./HomeComponent/Footer";
+import Header from "./HomeComponent/Header";
+
 
 export default function Home() {
 
     return(
-
+        <>
+        <Header/>
         <main className="home">
 
             <header className="hero">
@@ -33,13 +37,7 @@ export default function Home() {
 
                 <section className="workspace-center">
 
-                    {/* <OutfitPreview/> */}
-
-                    <div className="placeholder">
-
-                        Outfit Preview
-
-                    </div>
+                    <OutfitPreview/>
 
                 </section>
 
@@ -51,18 +49,11 @@ export default function Home() {
 
             </section>
 
-            <section className="explore">
-
-                <h2>
-
-                    Trending For You
-
-                </h2>
-
-            </section>
+            <ExploreSection/>
 
         </main>
-
+        <Footer/>
+    </>
     );
 
 }
