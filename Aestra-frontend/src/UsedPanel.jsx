@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ProductCard from "./ProductCard";
+import ProductCard from "./HomeComponent/UsedProductCard";
 import "./UsedPanel.css";
 
 export default function UsedPanel({

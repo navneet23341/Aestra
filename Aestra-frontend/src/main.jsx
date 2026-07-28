@@ -4,6 +4,7 @@ import {BrowserRouter ,Routes , Route} from 'react-router-dom'
 import './index.css'
 import App from './App.jsx'
 import Admin from './Admin.jsx'
+import Home from './Home.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -13,6 +14,8 @@ createRoot(document.getElementById('root')).render(
         path="/"
         element= {<App/>}
       />
+
+      <Route path="/home" element= {<Home/>}/>
 
       <Route
       path='/admin'

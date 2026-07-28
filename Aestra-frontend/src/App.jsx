@@ -3,7 +3,6 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
-import User from './User'
 import UsedPanel from './UsedPanel'
 import Landing from './Landing'
 function App() {

@@ -1,0 +1,121 @@
+.used-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:14px;
+
+    background:#FFFDFB;
+
+    border:1.5px solid #E4D5C7;
+
+    border-radius:22px;
+
+    transition:.25s;
+
+    width:min(290px,100%);
+    max-width:290px;
+    min-width:260px;
+
+}
+
+.used-card:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 10px 22px rgba(80,55,30,.08);
+
+}
+
+.used-image{
+
+    width:88px;
+
+    height:88px;
+
+    border-radius:18px;
+
+    object-fit:cover;
+
+    background:#F3ECE5;
+
+    flex-shrink:0;
+
+}
+
+.used-info{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:5px;
+
+}
+
+.used-info h3{
+
+    margin:0;
+
+    color:#4F3527;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+}
+
+.used-info p{
+
+    margin:0;
+
+    color:#8D7562;
+
+    font-size:.82rem;
+
+}
+
+.used-info span{
+
+    color:#7A5437;
+
+    font-weight:700;
+
+    font-size:1.05rem;
+
+}
+
+.buy-btn{
+
+    align-self:flex-end;
+
+    border:none;
+
+    background:#6B4F3A;
+
+    color:white;
+
+    padding:10px 18px;
+
+    border-radius:999px;
+
+    cursor:pointer;
+
+    font-size:.9rem;
+
+    font-weight:600;
+
+    transition:.25s;
+
+}
+
+.buy-btn:hover{
+
+    background:#845F45;
+
+}
