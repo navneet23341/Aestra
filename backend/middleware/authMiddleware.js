@@ -4,21 +4,7 @@ async function authMiddleware(req, res, next) {
 
     try {
 
-        const authHeader = req.headers.authorization;
-
-        if (!authHeader) {
-
-            return res.status(401).json({
-
-                success: false,
-
-                message: "Access token is required."
-
-            });
-
-        }
-
-        const token = authHeader.split(" ")[1];
+        const token = req.cookies.accessToken;
 
         if (!token) {
 
@@ -26,7 +12,7 @@ async function authMiddleware(req, res, next) {
 
                 success: false,
 
-                message: "Invalid authorization header."
+                message: "Access token is required."
 
             });
 

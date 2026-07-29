@@ -6,15 +6,54 @@ async function signup(req, res) {
 
         const result = await authService.signup(req.body);
 
+        const { accessToken, refreshToken, user } = result;
+
+        res.cookie(
+
+            "accessToken",
+
+            accessToken,
+
+            {
+
+                httpOnly: true,
+
+                secure: false,
+
+                sameSite: "lax"
+
+            }
+
+        );
+
+        res.cookie(
+
+            "refreshToken",
+
+            refreshToken,
+
+            {
+
+                httpOnly: true,
+
+                secure: false,
+
+                sameSite: "lax"
+
+            }
+
+        );
+
         res.status(201).json({
 
             success: true,
 
             message: "Account created successfully.",
 
-            ...result
+            user
 
         });
+
 
     }
 
@@ -38,15 +77,54 @@ async function login(req, res) {
 
         const result = await authService.login(req.body);
 
+                const { accessToken, refreshToken, user } = result;
+
+        res.cookie(
+
+            "accessToken",
+
+            accessToken,
+
+            {
+
+                httpOnly: true,
+
+                secure: false,   // true in production with HTTPS
+
+                sameSite: "lax"
+
+            }
+
+        );
+
+        res.cookie(
+
+            "refreshToken",
+
+            refreshToken,
+
+            {
+
+                httpOnly: true,
+
+                secure: false,
+
+                sameSite: "lax"
+
+            }
+
+        );
+
         res.status(200).json({
 
             success: true,
 
             message: "Login successful.",
 
-            ...result
+            user
 
         });
+
 
     }
 
@@ -80,15 +158,31 @@ async function refresh(req, res) {
 
     try {
 
-        const { refreshToken } = req.body;
+        const refreshToken = req.cookies.refreshToken;
 
         const result = await authService.refreshAccessToken(refreshToken);
 
+        res.cookie(
+
+            "accessToken",
+
+            result.accessToken,
+
+            {
+
+                httpOnly: true,
+
+                secure: false,
+
+                sameSite: "lax"
+
+            }
+
+        );
+
         res.status(200).json({
 
-            success: true,
-
-            accessToken: result.accessToken
+            success: true
 
         });
 
@@ -112,9 +206,41 @@ async function logout(req, res) {
 
     try {
 
-        const { refreshToken } = req.body;
+        const refreshToken = req.cookies.refreshToken;
 
         await authService.logout(refreshToken);
+
+        res.clearCookie(
+
+            "accessToken",
+
+            {
+
+                httpOnly: true,
+
+                secure: false,
+
+                sameSite: "lax"
+
+            }
+
+        );
+
+        res.clearCookie(
+
+            "refreshToken",
+
+            {
+
+                httpOnly: true,
+
+                secure: false,
+
+                sameSite: "lax"
+
+            }
+
+        );
 
         res.status(200).json({
 

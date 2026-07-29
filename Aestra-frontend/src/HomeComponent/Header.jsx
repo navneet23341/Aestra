@@ -4,19 +4,17 @@ import { useNavigate } from "react-router-dom";
 
 import logo from "../assets/logo.jpg";
 import { logout } from "../api/auth";
+import { useAuth } from "../context/AuthContext"; 
 export default function Header(){
 
     const [open,setOpen]=useState(false);
     const navigate = useNavigate();
+    const {setUser} = useAuth();
 
     const logoutuser = async ()=>{
-        const refreshToken = localStorage.getItem("refreshToken");
 
-        await logout(refreshToken);
-
-        localStorage.removeItem("accessToken");
-        localStorage.removeItem("refreshToken");
-
+        await logout();
+        setUser(null);
         navigate("/");
     }
 

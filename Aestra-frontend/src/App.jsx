@@ -5,6 +5,8 @@ import heroImg from './assets/hero.png'
 import './App.css'
 import UsedPanel from './UsedPanel'
 import Landing from './Landing'
+import ProtectedRoute from './ProtectedRoute'
+
 function App() {
   const [count, setCount] = useState(0)
   const templates = [

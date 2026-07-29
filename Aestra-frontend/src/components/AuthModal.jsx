@@ -1,8 +1,9 @@
 import { motion } from "motion/react";
 import "./AuthModal.css";
-import { useState } from "react";
+import { useState , useEffect} from "react";
 import { signup, login } from "../api/auth";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 export default function AuthModal({ closeAuth }) {
     const [screen, setScreen] = useState("login");
@@ -10,6 +11,9 @@ export default function AuthModal({ closeAuth }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const [image, setImage] = useState(null);
+    const {setUser} = useAuth();
+    const [createdUser, setCreatedUser] = useState(null);
     const navigate = useNavigate();
 
 
@@ -48,24 +52,7 @@ export default function AuthModal({ closeAuth }) {
 
             }
 
-            console.log(response);
-
-            localStorage.setItem(
-
-                "accessToken",
-
-                response.accessToken
-
-            );
-
-            localStorage.setItem(
-
-                "refreshToken",
-
-                response.refreshToken
-
-            );
-
+            setCreatedUser(response.user);
             return true;
 
         } catch (error) {
@@ -98,22 +85,7 @@ export default function AuthModal({ closeAuth }) {
 
             }
 
-            console.log(response);
-            localStorage.setItem(
-
-                "accessToken",
-
-                response.accessToken
-
-            );
-
-            localStorage.setItem(
-
-                "refreshToken",
-
-                response.refreshToken
-
-            );      
+            setUser(response.user);      
           return true;
 
         }
@@ -127,6 +99,50 @@ export default function AuthModal({ closeAuth }) {
         }
 
     }
+
+    const handleImage = (e) => {
+
+    const file = e.target.files[0];
+
+    if (!file) return;
+
+    if (!file.type.startsWith("image/")) {
+
+        alert("Please upload an image.");
+
+        return;
+
+    }
+
+    if (image) {
+
+        URL.revokeObjectURL(image.preview);
+
+    }
+
+    setImage({
+
+        file,
+
+        preview: URL.createObjectURL(file)
+
+    });
+
+    };
+
+    useEffect(() => {
+
+    return () => {
+
+        if (image) {
+
+            URL.revokeObjectURL(image.preview);
+
+        }
+
+    };
+
+    }, [image]);
 
     return(
 
@@ -170,9 +186,21 @@ export default function AuthModal({ closeAuth }) {
 
 
                 <h2>
-                    {screen === "login"
+
+                    {
+
+                        screen === "login"
+
                         ? "Welcome Back"
-                        : "Join Mirror"}
+
+                        : screen === "signup"
+
+                        ? "Join Mirror"
+
+                        : "Upload Your Photo"
+
+                    }
+
                 </h2>
 
                 <p>
@@ -182,7 +210,7 @@ export default function AuthModal({ closeAuth }) {
                 </p>
 
                 
-
+                {screen !== "upload" && (
                     <div className="auth-form">
 
                         {screen === "signup" && (
@@ -242,10 +270,167 @@ export default function AuthModal({ closeAuth }) {
                         )}
 
                     </div>
+                )}
 
-                    
-                             
+                {screen === "upload" && (
 
+                    <>
+
+                        <button
+                            className="back-btn"
+                            onClick={() => {
+
+                                if(image){
+
+                                    URL.revokeObjectURL(image.preview);
+
+                                }
+
+                                setImage(null);
+
+                                setScreen("signup");
+
+                            }}
+                        >
+
+                            ← Back
+
+                        </button>
+
+                        <div className="upload-section">
+
+                            <label
+                                htmlFor="photo-upload"
+                                className="upload-box"
+                            >
+
+                                {
+
+                                    image ?
+
+                                    <motion.img
+
+                                        src={image.preview}
+
+                                        className="preview-image"
+
+                                        initial={{
+
+                                            opacity:0,
+
+                                            scale:.8
+
+                                        }}
+
+                                        animate={{
+
+                                            opacity:1,
+
+                                            scale:1
+
+                                        }}
+
+                                    />
+
+                                    :
+
+                                    <div className="camera-icon">
+
+                                        📷
+
+                                    </div>
+
+                                }
+
+                                <h3>
+
+                                    {
+
+                                        image ?
+
+                                        "Photo Ready"
+
+                                        :
+
+                                        "Upload Your Photo"
+
+                                    }
+
+                                </h3>
+
+                                <p>
+
+                                    {
+
+                                        image ?
+
+                                        "Looks great!"
+
+                                        :
+
+                                        "Choose a clear full-body image."
+
+                                    }
+
+                                </p>
+
+                                <span className="upload-btn">
+
+                                    {
+
+                                        image ?
+
+                                        "Replace Photo"
+
+                                        :
+
+                                        "Browse Files"
+
+                                    }
+
+                                </span>
+
+                            </label>
+
+                            <input
+
+                                id="photo-upload"
+
+                                type="file"
+
+                                accept="image/*"
+
+                                onChange={handleImage}
+
+                            />
+
+                        </div>
+
+                        <button
+
+                            className="submit-button"
+
+                            disabled={!image}
+
+                            onClick={async () => {
+
+                                // upload image to backend later
+                                setUser(createdUser)
+                                closeAuth();
+                                navigate("/home");
+
+                            }}
+
+                        >
+
+                            Continue
+
+                        </button>
+
+                    </>
+
+                )}
+                {screen !== "upload" && (    
                 <button
 
                     className="submit-button"
@@ -258,18 +443,29 @@ export default function AuthModal({ closeAuth }) {
 
                     onClick={async() => {
 
-                        const success =
-                            screen === "signup"
-                                ? await handleSignup()
-                                : await handleLogin();
+                        if (screen === "login") {
 
-                        if(success){
+                            const success = await handleLogin();
 
-                            console.log("Authentication Successful");
+                            if (success) {
 
-                            // Later we'll do:
-                            closeAuth();
-                            navigate("/home");
+                                closeAuth();
+
+                                navigate("/home");
+
+                            }
+
+                        }
+
+                        else if (screen === "signup") {
+
+                            const success = await handleSignup();
+
+                            if (success) {
+
+                                setScreen("upload");
+
+                            }
 
                         }
 
@@ -282,6 +478,7 @@ export default function AuthModal({ closeAuth }) {
                         : "Create Account"}
 
                 </button>
+                )}
                 
                 <div className="switch-auth">
 

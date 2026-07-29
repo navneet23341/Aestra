@@ -1,50 +1,12 @@
-const BASE_URL = "http://localhost:3000/api/auth";
+import { apiFetch } from "./apiFetch";
+
+const BASE_URL = "/api/auth";
 
 export async function signup(userData) {
 
-    const response = await fetch(`${BASE_URL}/signup`, {
+    return await apiFetch(
 
-        method: "POST",
-
-        headers: {
-            "Content-Type": "application/json"
-        },
-
-        credentials: "include",
-
-        body: JSON.stringify(userData)
-
-    });
-
-    return response.json();
-
-}
-
-export async function login(userData) {
-
-    const response = await fetch(`${BASE_URL}/login`, {
-
-        method: "POST",
-
-        headers: {
-            "Content-Type": "application/json"
-        },
-
-        credentials: "include",
-
-        body: JSON.stringify(userData)
-
-    });
-
-    return response.json();
-
-}
-
-export async function logout(refreshToken) {
-
-    const response = await fetch(
-
-        `${BASE_URL}/logout`,
+        `${BASE_URL}/signup`,
 
         {
 
@@ -56,16 +18,70 @@ export async function logout(refreshToken) {
 
             },
 
-            body: JSON.stringify({
-
-                refreshToken
-
-            })
+            body: JSON.stringify(userData)
 
         }
 
     );
 
-    return response.json();
+}
+
+export async function login(userData) {
+
+    return await apiFetch(
+
+        `${BASE_URL}/login`,
+
+        {
+
+            method: "POST",
+
+            headers: {
+
+                "Content-Type": "application/json"
+
+            },
+
+            body: JSON.stringify(userData)
+
+        }
+
+    );
+
+}
+
+export async function logout() {
+
+    return await apiFetch(
+
+        `${BASE_URL}/logout`,
+
+        {
+
+            method: "POST"
+
+        }
+
+    );
+
+}
+
+export async function refresh() {
+
+    const response = await fetch(
+
+        "http://localhost:3000/api/auth/refresh",
+
+        {
+
+            method: "POST",
+
+            credentials: "include"
+
+        }
+
+    );
+
+    return await response.json();
 
 }

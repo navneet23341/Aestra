@@ -1,6 +1,8 @@
 const express = require("express");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 require("dotenv").config();
+
 
 const pool = require("./config/db");
 
@@ -22,6 +24,7 @@ app.use(cors({
 
 }));
 app.use(express.json());
+app.use(cookieParser());
 
 const adminRoutes = require("./routes/adminRoutes");
 const userRoutes = require("./routes/userRoutes");
@@ -30,6 +33,7 @@ const authRoutes = require("./routes/authRoutes");
 app.use("/admin", adminRoutes);
 app.use("/user", userRoutes);
 app.use("/api/auth", authRoutes);
+
 
 app.listen(3000, () => {
     console.log("Server listening on port 3000...");
