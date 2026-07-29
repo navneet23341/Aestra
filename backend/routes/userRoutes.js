@@ -2,12 +2,14 @@ const express = require("express");
 const router = express.Router();
 
 const upload = require("../middleware/upload");
-const { findOutfit } = require("../controllers/userController");
+const authMiddleware = require("../middleware/authMiddleware");
+const { uploadProfilePhoto } = require("../controllers/userController");
 
 router.post(
-    "/find",
+    "/profile-photo",
+    authMiddleware,
     upload.single("image"),
-    findOutfit
+    uploadProfilePhoto
 );
 
 module.exports = router;

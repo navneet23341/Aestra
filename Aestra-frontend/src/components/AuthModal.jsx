@@ -413,8 +413,36 @@ export default function AuthModal({ closeAuth }) {
                             disabled={!image}
 
                             onClick={async () => {
+                                const formData = new FormData();
 
-                                // upload image to backend later
+                                formData.append("image", image.file);
+
+                                const response = await fetch(
+
+                                    "http://localhost:3000/user/profile-photo",
+
+                                    {
+
+                                        method: "POST",
+
+                                        credentials: "include",
+
+                                        body: formData
+
+                                    }
+
+                                );
+
+                                const data = await response.json();
+
+                                if (!data.success) {
+
+                                    alert("Failed to upload image.");
+
+                                    return;
+
+                                }
+
                                 setUser(createdUser)
                                 closeAuth();
                                 navigate("/home");

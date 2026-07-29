@@ -1,32 +1,49 @@
 const { uploadImage } = require("../services/cloudinaryService");
 const userService = require("../services/userService");
 
-const findOutfit = async (req, res) => {
+const uploadProfilePhoto = async (req, res) => {
 
     try {
 
-        const { prompt, style } = req.body;
+        const uploadResult = await uploadImage(
 
-        const uploadResult = await uploadImage(req.file.buffer, "users");
+            req.file.buffer,
+            "users"
 
-        const metadata = await userService.processUser({
-            imageUrl: uploadResult.secure_url,
-            prompt,
-            style
+        );
+
+        const user = await userService.saveProfilePhoto({
+
+            userId: req.user.id,
+
+            imageUrl: uploadResult.secure_url
+
         });
+
+        // Start background work
+        userService.generateAvatar(user.id, uploadResult.secure_url).catch(console.error);
+;
+
+        userService.extractMetadata(user.id, uploadResult.secure_url).catch(console.error);
+;
 
         res.json({
+
             success: true,
-            imageUrl: uploadResult.secure_url,
-            metadata
+            user
+
         });
 
-    } catch (err) {
+    }
+
+    catch (err) {
 
         console.log(err);
 
         res.status(500).json({
-            success: false
+
+            success:false
+
         });
 
     }
@@ -34,5 +51,7 @@ const findOutfit = async (req, res) => {
 };
 
 module.exports = {
-    findOutfit
+
+    uploadProfilePhoto
+
 };
