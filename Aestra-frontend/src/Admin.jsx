@@ -59,7 +59,7 @@ function Admin(){
         formData.append("link",link);
 
         const response = await fetch(
-            "http://localhost:3000/admin/store",
+            "https://fabulous-eagerness-production.up.railway.app/admin/store",
             {
                 method:"POST",
                 body:formData
