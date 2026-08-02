@@ -1,6 +1,6 @@
 import { refresh } from "./auth";
 
-const BASE_URL = "https://fabulous-eagerness-production.up.railway.app/";
+const BASE_URL = "https://fabulous-eagerness-production.up.railway.app";
 
 export async function apiFetch(endpoint, options = {}) {
 
