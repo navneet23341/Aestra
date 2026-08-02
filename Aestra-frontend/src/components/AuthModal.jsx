@@ -419,7 +419,7 @@ export default function AuthModal({ closeAuth }) {
 
                                 const response = await fetch(
 
-                                    "http://localhost:3000/user/profile-photo",
+                                    "https://fabulous-eagerness-production.up.railway.app/user/profile-photo",
 
                                     {
 
