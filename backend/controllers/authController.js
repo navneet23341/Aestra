@@ -18,9 +18,9 @@ async function signup(req, res) {
 
                 httpOnly: true,
 
-                secure: false,
+                secure: true,
 
-                sameSite: "lax"
+                sameSite: "none"
 
             }
 
@@ -36,9 +36,9 @@ async function signup(req, res) {
 
                 httpOnly: true,
 
-                secure: false,
+                secure: true,
 
-                sameSite: "lax"
+                sameSite: "none"
 
             }
 
@@ -89,9 +89,9 @@ async function login(req, res) {
 
                 httpOnly: true,
 
-                secure: false,   // true in production with HTTPS
+                secure: true,   // true in production with HTTPS
 
-                sameSite: "lax"
+                sameSite: "none"
 
             }
 
@@ -107,9 +107,9 @@ async function login(req, res) {
 
                 httpOnly: true,
 
-                secure: false,
+                secure: true,
 
-                sameSite: "lax"
+                sameSite: "none"
 
             }
 
@@ -172,9 +172,9 @@ async function refresh(req, res) {
 
                 httpOnly: true,
 
-                secure: false,
+                secure: true,
 
-                sameSite: "lax"
+                sameSite: "none"
 
             }
 
@@ -218,9 +218,9 @@ async function logout(req, res) {
 
                 httpOnly: true,
 
-                secure: false,
+                secure: true,
 
-                sameSite: "lax"
+                sameSite: "none"
 
             }
 
@@ -234,9 +234,9 @@ async function logout(req, res) {
 
                 httpOnly: true,
 
-                secure: false,
+                secure: true,
 
-                sameSite: "lax"
+                sameSite: "none"
 
             }
 
